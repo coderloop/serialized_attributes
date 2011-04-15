@@ -1,0 +1,20 @@
+= Serialized Attributes
+
+Serialized Attributes created virtual attributes backed by a serialized hash.
+It works best together with https://github.com/jqr/typed_serialize
+
+== Example
+
+  class User < ActiveRecord::Base
+    typed_serialize :meta, Hash
+    serialized_attributes :meta, :name, :surname, :phone
+  end
+
+  u = User.new
+  u.meta                   # => {}
+  u.name = 'Federico'
+  u.meta                   # => { 'name' => 'federico' }
+  u.name                   # => 'federico'
+  
+Homepage:: https://github.com/coderloop/serialized_attributes
+License:: Copyright (c) 2011 Coderloop Inc. <mailto:info@coderloop.com>, released under the MIT license

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Federico Feroldi"]
   s.email       = ["federico@coderloop.com"]
   s.homepage    = ""
-  s.summary     = %q{Create virtual attributes backed by a serialized hash}
+  s.summary     = %q{Create virtual attributes backed by a serialized field}
   s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "serialized_attributes"
