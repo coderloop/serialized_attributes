@@ -1,0 +1,3 @@
+module SerializedAttributes
+  # Your code goes here...
+end
