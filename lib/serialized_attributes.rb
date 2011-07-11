@@ -4,7 +4,8 @@ class ActiveRecord::Base
     accessors.each do |m|
       class_eval <<-EOS
         def #{m}
-          puts "READING #{container}[#{m}]"  
+          puts "READING #{container}[#{m}]"
+          self.#{container} = Hash.new unless self.#{container}.is_a?(Hash)
           self.#{container}['#{m}']
         end
       EOS
@@ -15,7 +16,8 @@ class ActiveRecord::Base
     accessors.each do |m|
       class_eval <<-EOS
         def #{m}=(val) 
-          puts "WRITING #{container}[#{m}]"  
+          puts "WRITING #{container}[#{m}] v1"  
+          self.#{container} = Hash.new unless self.#{container}.is_a?(Hash)
           self.#{container}['#{m}'] = val
         end
       EOS
