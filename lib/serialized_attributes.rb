@@ -3,7 +3,8 @@ class ActiveRecord::Base
   def self.serialized_attr_reader(container, *accessors)
     accessors.each do |m|
       class_eval <<-EOS
-        def #{m}  
+        def #{m}
+          puts "READING #{container}[#{m}]"  
           self.#{container}['#{m}']
         end
       EOS
@@ -14,6 +15,7 @@ class ActiveRecord::Base
     accessors.each do |m|
       class_eval <<-EOS
         def #{m}=(val) 
+          puts "WRITING #{container}[#{m}]"  
           self.#{container}['#{m}'] = val
         end
       EOS
